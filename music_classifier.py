@@ -6,7 +6,6 @@ import os
 import time
 from google import genai
 from google.genai import types
-import asyncio
 
 load_dotenv()
 
@@ -23,9 +22,9 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
 client = genai.Client(api_key=GEMINI_API_KEY)
 model_name = "models/gemini-2.5-pro-exp-03-25"  # Using a stable model
 
-async def get_gemini_genre_classification_batched(prompt):
+def get_gemini_genre_classification_batched(prompt):
     try:
-        response = await client.models.generate_content(
+        response = client.models.generate_content(
             model=model_name,
             contents=[
                 types.Content(
@@ -43,7 +42,7 @@ async def get_gemini_genre_classification_batched(prompt):
         print(f"Error classifying with Gemini (batched): {e}")
         return None
 
-async def classify_unknown_genres_batched_gemini(unknown_songs):
+def classify_unknown_genres_batched_gemini(unknown_songs):
     if not unknown_songs:
         return {}
 
@@ -53,7 +52,7 @@ async def classify_unknown_genres_batched_gemini(unknown_songs):
     prompt_footer = "\n\nGenres:"
     full_prompt = prompt_header + prompt_body + prompt_footer
 
-    classification_response = await get_gemini_genre_classification_batched(full_prompt)
+    classification_response = get_gemini_genre_classification_batched(full_prompt)
 
     classifications = {}
     if classification_response:
@@ -99,7 +98,7 @@ def get_genre_from_artists(artists):
             return genres[0]
     return 'Unknown'
 
-async def organize_by_genre(tracks):
+def organize_by_genre(tracks):
     genre_map = defaultdict(list)
     unknown_songs = []
 
@@ -118,7 +117,7 @@ async def organize_by_genre(tracks):
             genre_map[genre].append(f"{name} - {artist_names_str}")
 
     print("\nClassifying songs with 'Unknown' genre using Gemini...")
-    gemini_classifications = await classify_unknown_genres_batched_gemini(unknown_songs)
+    gemini_classifications = classify_unknown_genres_batched_gemini(unknown_songs)
 
     for song in unknown_songs:
         song_artist_str = f"{song['name']} - {song['artists']}"
@@ -131,10 +130,10 @@ async def organize_by_genre(tracks):
 
     return genre_map
 
-async def main():
+def main():
     playlist_id = get_playlist_id(PLAYLIST_LINK)
     tracks = get_playlist_tracks(playlist_id)
-    genre_map = await organize_by_genre(tracks)
+    genre_map = organize_by_genre(tracks)
 
     with open("organized_playlist.txt", "w", encoding="utf-8") as f:
         for genre, songs in genre_map.items():
@@ -145,4 +144,4 @@ async def main():
     print("\n✅ Playlist organized by genre (including Gemini classifications) and saved to 'organized_playlist.txt'")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

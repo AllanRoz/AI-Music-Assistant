@@ -261,127 +261,273 @@ Despacito - Luis Fonsi, Daddy Yankee
 ## MEME RAP ##
 JENNI - Yung Kage, Softwilly
 
-## UNKNOWN (UNCLASSIFIED BY GEMINI) ##
+## **ALT-POP** ##
 Cry For You - Isabel LaRosa
+Home - Isabel LaRosa
+Red Velvet (with Ari Abdul) - Jutes, Ari Abdul
+GIVEN ENOUGH - Nessa Barrett
+STAY ALIVE - Nessa Barrett
+eyes don't lie - Isabel LaRosa
+Favorite - Isabel LaRosa
+Drinking with Cupid - VOILÀ
+PASSENGER PRINCESS - Nessa Barrett
+i'm yours - Isabel LaRosa
+dying on the inside - Nessa Barrett
+
+## **POP** ##
 Means I care - Tate McRae
 No I'm not in love - Tate McRae
 Like I do - Tate McRae
-Greenlight - Tate McRae
-I know love (feat. The Kid LAROI) - Tate McRae, The Kid LAROI
 Signs - Tate McRae
-bloodonmyhands (feat. Flo Milli) - Tate McRae, Flo Milli
-Dear god - Tate McRae
 Miss possessive - Tate McRae
-Home - Isabel LaRosa
-Red Velvet (with Ari Abdul) - Jutes, Ari Abdul
-TV - MICO
-Headlock - Imogen Heap
-Mamacita - Rarin
-My Demons - STARSET
 Sports car - Tate McRae
-greedy - Tate McRae
-back to friends - sombr
 Revolving door - Tate McRae
-Red Wine Supernova - Chappell Roan
-HEARTBEAT - Nessa Barrett
 It's ok I'm ok - Tate McRae
 you broke me first - Tate McRae
-Chess (Type Beat) - Slowed - joyful
-american jesus - Nessa Barrett
-GIVEN ENOUGH - Nessa Barrett
-MUSTANG BABY (FT. ARTEMAS) - Nessa Barrett, Artemas
-STAY ALIVE - Nessa Barrett
-ჩუბინა - Chub1na.Ge
 2 hands - Tate McRae
-TELESCOPE - TWXN, LL Clawz, 507KAZ
-BABY I'M BACK - The Kid LAROI
-Heat Waves - Glass Animals
-TORE UP - Don Toliver
-Enemy (with JID) - from the series Arcane League of Legends - Imagine Dragons, JID, Arcane, League of Legends
-The Line (from the series Arcane League of Legends) - Arcane, Twenty One Pilots
-SPINE - WesGhost
-IOU - Layto, WesGhost
-DIRTY LITTLE SECRET - Nessa Barrett
-eyes don't lie - Isabel LaRosa
-Favorite - Isabel LaRosa
 hurt my feelings - Tate McRae
 run for the hills - Tate McRae
-The Color Violet - Tory Lanez
+
+## **DANCE-POP** ##
+Greenlight - Tate McRae
+greedy - Tate McRae
+
+## **POP-RAP** ##
+I know love (feat. The Kid LAROI) - Tate McRae, The Kid LAROI
+bloodonmyhands (feat. Flo Milli) - Tate McRae, Flo Milli
+BABY I'M BACK - The Kid LAROI
+GIRLS - The Kid LAROI
+
+## **POP BALLAD** ##
+Dear god - Tate McRae
+
+## **INDIE POP** ##
+TV - MICO
+Cheap Cologne - GRAHAM
+
+## **ART POP / ELECTROPOP** ##
+Headlock - Imogen Heap
+
+## **POP-RAP / MELODIC RAP** ##
+Mamacita - Rarin
+
+## **ROCK / CINEMATIC ROCK** ##
+My Demons - STARSET
+
+## **LOFI POP / INDIE POP** ##
+back to friends - sombr
+
+## **ALT-POP / POP** ##
+Red Wine Supernova - Chappell Roan
+
+## **ALT-POP / POP-ROCK** ##
+HEARTBEAT - Nessa Barrett
+american jesus - Nessa Barrett
 Figure You Out - VOILÀ
+
+## **LOFI HIP-HOP / CHILL BEAT** ##
+Chess (Type Beat) - Slowed - joyful
+
+## **ALT-POP / DARK POP** ##
+MUSTANG BABY (FT. ARTEMAS) - Nessa Barrett, Artemas
+SPINE - WesGhost
+
+## **PHONK (GEORGIAN INFLUENCE)** (OFTEN A PHONK REMIX OF A GEORGIAN FOLK SONG) ##
+ჩუბინა - Chub1na.Ge
+
+## **HIP-HOP / TRAP** ##
+TELESCOPE - TWXN, LL Clawz, 507KAZ
+
+## **INDIE POP / PSYCHEDELIC POP** ##
+Heat Waves - Glass Animals
+
+## **HIP-HOP / MELODIC RAP** ##
+TORE UP - Don Toliver
+
+## **ROCK / HIP-HOP** ##
+Enemy (with JID) - from the series Arcane League of Legends - Imagine Dragons, JID, Arcane, League of Legends
+
+## **ALTERNATIVE ROCK / ALT-POP** ##
+The Line (from the series Arcane League of Legends) - Arcane, Twenty One Pilots
+IOU - Layto, WesGhost
+Navigating - Twenty One Pilots
+
+## **POP-PUNK / ALT-POP** ##
+DIRTY LITTLE SECRET - Nessa Barrett
+i hope ur miserable until ur dead - Nessa Barrett
+
+## **R&B / HIP-HOP** ##
+The Color Violet - Tory Lanez
+
+## **INDIE POP / ALT-POP** ##
 Stranger - Stellar
 Mean It - Stellar
+Bad Dream - Stellar
+everything, everywhere (feat. eaJ) - vaultboy, eaJ
+
+## **ALT-POP / EMO POP** ##
 TOXIC - Chri$tian Gate$, Dutch Melrose
+Bleed - Connor Kauffman
+RUNRUNRUN - Dutch Melrose
+
+## **POP / INDIE POP** ##
 Memories - Conan Gray
+People Watching - Conan Gray
+
+## **ALTERNATIVE R&B / DARK POP** ##
 DIE FOR ME - Chase Atlantic
 MAMACITA - Chase Atlantic
+
+## **POP / POP-RAP** ##
 THOUSAND MILES - The Kid LAROI
+
+## **POP-RAP / EMO RAP** ##
 WITHOUT YOU - The Kid LAROI
+
+## **POP / SYNTH-POP** ##
 STAY (with Justin Bieber) - The Kid LAROI, Justin Bieber
-GIRLS - The Kid LAROI
+
+## **ALTERNATIVE R&B** ##
 Swim - Chase Atlantic
-Make You Mine - Madison Beer
-Consume (feat. Goon Des Garcons) - Chase Atlantic, GOON DES GARCONS*
-Drinking with Cupid - VOILÀ
-Bad Dream - Stellar
-El Dorado - Stellar
-Hate. - ThxSoMch
-Bleed - Connor Kauffman
-Next Semester - Twenty One Pilots
-Blinding Lights - The Weeknd
-Sweater Weather - The Neighbourhood
-SPIT IN MY FACE! - ThxSoMch
-Afraid - The Neighbourhood
-Middle Finger - Bohnes
-Sex, Drugs, Etc. - Sped Up Version - Beach Weather
-Navigating - Twenty One Pilots
-The Hills - The Weeknd
-Bubblegum Bitch - MARINA
-PASSENGER PRINCESS - Nessa Barrett
-Die Young - Kesha
-Runaway (U & I) - Galantis
-Lights - Ellie Goulding
-Dynamite - Taio Cruz
-Diamonds - Rihanna
-So Divine - AFTRHR
-Softcore - The Neighbourhood
-HEAD OVER HEELS - Gun Boi Kaz
-People Watching - Conan Gray
-i'm yours - Isabel LaRosa
 Into It - Chase Atlantic
-die (sped up) - lucidbeatz, Key Kelly
 Friends - Chase Atlantic
-If We Have Each Other - Alec Benjamin
-Good Luck, Babe! - Chappell Roan
 Slow Down - Chase Atlantic
-Heartbeat - Childish Gambino
-I Sent My Therapist To Therapy - Alec Benjamin
-I'll Do It - Sped Up Version - Heidi Montag
-In Heat X BrooklynBloodPop! - Farizki
-Only In My Mind - Kenya Grace
-Islands (kompa pasión) - фрози, Tomo
-Unforgettable - French Montana, Swae Lee
-Sydney Sweeney - tasahhhhh
-everything, everywhere (feat. eaJ) - vaultboy, eaJ
-i like the way you kiss me - Artemas
-Ashes - Stellar
-i hope ur miserable until ur dead - Nessa Barrett
-die first - Nessa Barrett
-dying on the inside - Nessa Barrett
-Champagne & Sunshine - PLVTINUM, Tarro
-Oh No! - MARINA
-Luminary - Joel Sunny
-Ethereal - Txmy
-exes - Tate McRae
 HEAVEN AND BACK - Chase Atlantic
-Cheap Cologne - GRAHAM
+
+## **POP / R&B** ##
+Make You Mine - Madison Beer
+
+## **ALTERNATIVE R&B / HIP-HOP** ##
+Consume (feat. Goon Des Garcons) - Chase Atlantic, GOON DES GARCONS*
+
+## **INDIE POP / ALT-ROCK** ##
+El Dorado - Stellar
+
+## **ALTERNATIVE ROCK / POST-PUNK REVIVAL** ##
+Hate. - ThxSoMch
+SPIT IN MY FACE! - ThxSoMch
+
+## **ALTERNATIVE ROCK / POP-PUNK** ##
+Next Semester - Twenty One Pilots
+
+## **SYNTH-POP / R&B** ##
+Blinding Lights - The Weeknd
+
+## **ALTERNATIVE ROCK / INDIE POP** ##
+Sweater Weather - The Neighbourhood
+Afraid - The Neighbourhood
+Softcore - The Neighbourhood
+
+## **ALTERNATIVE POP / ROCK** ##
+Middle Finger - Bohnes
+
+## **ALTERNATIVE POP (SPED UP)** ##
+Sex, Drugs, Etc. - Sped Up Version - Beach Weather
+
+## **R&B / DARK R&B** ##
+The Hills - The Weeknd
+
+## **ELECTROPOP / POP** ##
+Bubblegum Bitch - MARINA
+Oh No! - MARINA
+
+## **ELECTROPOP / DANCE-POP** ##
+Die Young - Kesha
+
+## **PROGRESSIVE HOUSE / EDM** ##
+Runaway (U & I) - Galantis
+
+## **ELECTROPOP / SYNTH-POP** ##
+Lights - Ellie Goulding
+
+## **DANCE-POP / ELECTROPOP** ##
+Dynamite - Taio Cruz
+
+## **POP / DANCE-POP** ##
+Diamonds - Rihanna
+
+## **SYNTH-POP / CHILLWAVE** ##
+So Divine - AFTRHR
+
+## **EMO RAP / ALT-POP** ##
+HEAD OVER HEELS - Gun Boi Kaz
+
+## **PHONK / SPED UP HIP-HOP** ##
+die (sped up) - lucidbeatz, Key Kelly
+
+## **POP / SINGER-SONGWRITER** ##
+If We Have Each Other - Alec Benjamin
+I Sent My Therapist To Therapy - Alec Benjamin
+
+## **POP / ALT-POP** ##
+Good Luck, Babe! - Chappell Roan
+
+## **ALTERNATIVE R&B / ELECTRONIC** ##
+Heartbeat - Childish Gambino
+
+## **POP (SPED UP) / HYPERPOP-ADJACENT** ##
+I'll Do It - Sped Up Version - Heidi Montag
+
+## **PHONK / DRIFT PHONK** ##
+In Heat X BrooklynBloodPop! - Farizki
+
+## **DRUM & BASS / ELECTRONIC POP** ##
+Only In My Mind - Kenya Grace
+
+## **KOMPA / ZOUK** ##
+Islands (kompa pasión) - фрози, Tomo
+
+## **HIP-HOP / DANCEHALL** ##
+Unforgettable - French Montana, Swae Lee
+
+## **ALT-POP / BEDROOM POP** ##
+Sydney Sweeney - tasahhhhh
+
+## **DARK POP / ALTERNATIVE POP** ##
+i like the way you kiss me - Artemas
+
+## **INDIE ROCK / ALT-ROCK** ##
+Ashes - Stellar
+
+## **ALT-POP / POP BALLAD** ##
+die first - Nessa Barrett
+
+## **ELECTRONIC POP / FUTURE BASS** ##
+Champagne & Sunshine - PLVTINUM, Tarro
+
+## **AMBIENT / CINEMATIC** ##
+Luminary - Joel Sunny
+
+## **LOFI HIP-HOP / CHILLHOP** ##
+Ethereal - Txmy
+
+## **DANCE-POP / POP** ##
+exes - Tate McRae
+
+## **PHONK / WAVE** ##
 VVV - mikeeysmind, Sanikwave
-RUNRUNRUN - Dutch Melrose
+
+## **HIP-HOP / ELECTRONIC** ##
 What's Up Danger (with Black Caviar) - Blackway, Black Caviar
+
+## **POP-ROCK / POP** ##
 Shameless - Camila Cabello
+
+## **HIP-HOP / RAP** ##
 GOTHAM - Dax
+
+## **J-POP (SPED UP) / NIGHTCORE** ##
 Fujii Kaze - SpedFeelin
+
+## **PHONK / HARDSTYLE** ##
 sickkunt - Gilda Thistle
+
+## **INDIE POP / NEO SOUL** ##
 Out of My League - Fitz and The Tantrums
-Just My Type - The Vamps
 HandClap - Fitz and The Tantrums
+
+## **POP ROCK / POP** ##
+Just My Type - The Vamps
+
+## **POP-RAP / HIP-HOP** ##
 STAR WALKIN' (League of Legends Worlds Anthem) - Lil Nas X

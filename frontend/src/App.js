@@ -4,6 +4,7 @@ import {
   FileTextOutlined,
   EditOutlined,
   UploadOutlined,
+  LinkOutlined,
 } from "@ant-design/icons";
 
 const { TextArea } = Input;
@@ -12,21 +13,40 @@ const { Title } = Typography;
 function App() {
   const [showTextArea, setShowTextArea] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
+  const [showSpotifyInput, setShowSpotifyInput] = useState(false);
   const [fileContent, setFileContent] = useState("");
   const [textInput, setTextInput] = useState("");
+  const [spotifyLink, setSpotifyLink] = useState("");
+  const [organizedSongs, setOrganizedSongs] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleInsertText = () => {
     setShowTextArea(true);
     setShowFileInput(false);
+    setShowSpotifyInput(false);
+    setOrganizedSongs(null); // Clear previous results
   };
 
   const handleInsertFile = () => {
     setShowFileInput(true);
     setShowTextArea(false);
+    setShowSpotifyInput(false);
+    setOrganizedSongs(null); // Clear previous results
+  };
+
+  const handleInsertSpotifyLink = () => {
+    setShowSpotifyInput(true);
+    setShowTextArea(false);
+    setShowFileInput(false);
+    setOrganizedSongs(null); // Clear previous results
   };
 
   const handleTextChange = (e) => {
     setTextInput(e.target.value);
+  };
+
+  const handleSpotifyLinkChange = (e) => {
+    setSpotifyLink(e.target.value);
   };
 
   const handleFileChange = (info) => {
@@ -56,17 +76,23 @@ function App() {
   };
 
   const handleSubmit = async () => {
-    if (textInput || fileContent) {
+    if (textInput || fileContent || spotifyLink) {
+      setLoading(true);
       const dataToSend = {};
-      if (textInput) {
+      let endpoint = "";
+      if (spotifyLink) {
+        dataToSend.link = spotifyLink;
+        endpoint = "/organize/playlist";
+      } else if (textInput) {
         dataToSend.text = textInput;
-      }
-      if (fileContent) {
-        dataToSend.file_content = fileContent;
+        endpoint = "/organize/text";
+      } else if (fileContent) {
+        dataToSend.text = fileContent; // Treat file content as text input
+        endpoint = "/organize/text";
       }
 
       try {
-        const response = await fetch("/submit", {
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -75,22 +101,35 @@ function App() {
         });
 
         if (response.ok) {
-          message.success("Data sent to backend successfully!");
+          message.success("Songs organized successfully!");
+          const organizedData = await response.json();
+          setOrganizedSongs(organizedData);
           setTextInput("");
           setFileContent("");
+          setSpotifyLink("");
           setShowTextArea(false);
           setShowFileInput(false);
+          setShowSpotifyInput(false);
         } else {
           const errorData = await response.json();
           message.error(
-            `Failed to send data: ${errorData.error || response.statusText}`
+            `Failed to organize songs: ${
+              errorData.error || response.statusText
+            }`
           );
+          setOrganizedSongs(null);
         }
       } catch (error) {
         message.error(`Failed to connect to backend: ${error.message}`);
+        setOrganizedSongs(null);
+      } finally {
+        setLoading(false);
       }
     } else {
-      message.warning("Please insert text or select a file before submitting.");
+      message.warning(
+        "Please insert text, select a file, or enter a Spotify link before submitting."
+      );
+      setOrganizedSongs(null);
     }
   };
 
@@ -101,7 +140,7 @@ function App() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
-        paddingTop: 0,
+        // paddingTop: 32,
       }}
     >
       <div style={{ width: "80%", maxWidth: "600px", textAlign: "center" }}>
@@ -114,8 +153,15 @@ function App() {
           >
             Insert Text
           </Button>
-          <Button icon={<FileTextOutlined />} onClick={handleInsertFile}>
+          <Button
+            icon={<FileTextOutlined />}
+            onClick={handleInsertFile}
+            style={{ marginRight: 8 }}
+          >
             Insert TXT File
+          </Button>
+          <Button icon={<LinkOutlined />} onClick={handleInsertSpotifyLink}>
+            Spotify Link
           </Button>
         </div>
 
@@ -126,7 +172,7 @@ function App() {
               rows={27}
               value={textInput}
               onChange={handleTextChange}
-              placeholder="Type your text here"
+              placeholder="Enter song name and artist (one per line, e.g., Song Name - Artist)"
             />
           </div>
         )}
@@ -164,14 +210,56 @@ function App() {
           </div>
         )}
 
+        {showSpotifyInput && (
+          <div style={{ marginTop: 24 }}>
+            <Title level={3}>Enter Spotify Playlist Link:</Title>
+            <Input
+              placeholder="https://open.spotify.com/playlist/..."
+              value={spotifyLink}
+              onChange={handleSpotifyLinkChange}
+            />
+          </div>
+        )}
+
         <Button
           type="primary"
           size="large"
           onClick={handleSubmit}
           style={{ marginTop: 32 }}
+          loading={loading}
         >
-          Submit
+          Organize Songs
         </Button>
+
+        {organizedSongs && organizedSongs.length > 0 && (
+          <div style={{ marginTop: 32, width: "100%", textAlign: "left" }}>
+            <Title level={2}>Organized Songs:</Title>
+            {organizedSongs.map(([genre, songs]) => (
+              <div key={genre} style={{ marginBottom: 16 }}>
+                <Title level={3}>{genre.toUpperCase()}</Title>
+                <ul>
+                  {songs.map((song) => (
+                    <li key={song}>{song}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
+        {organizedSongs && organizedSongs.length === 0 && !loading && (
+          <div
+            style={{
+              marginTop: 32,
+              width: "100%",
+              textAlign: "center",
+              color: "gray",
+            }}
+          >
+            <Typography.Paragraph>
+              No songs found or could be classified.
+            </Typography.Paragraph>
+          </div>
+        )}
       </div>
     </div>
   );
