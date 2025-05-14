@@ -19,7 +19,7 @@ function App() {
   const [spotifyLink, setSpotifyLink] = useState("");
   const [organizedSongs, setOrganizedSongs] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [fileName, setFileName] = useState("");
+  // const [fileName, setFileName] = useState("");
 
   const handleInsertText = () => {
     setShowTextArea(true);
