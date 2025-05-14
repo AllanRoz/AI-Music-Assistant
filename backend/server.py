@@ -21,7 +21,30 @@ sp_client_credentials_manager = SpotifyClientCredentials(
 sp = spotipy.Spotify(auth_manager=sp_client_credentials_manager)
 
 client = genai.Client(api_key=GEMINI_API_KEY)
-model_name = "models/gemini-2.5-pro-exp-03-25"  # Using a stable model
+# model_name = "models/gemini-2.5-pro-exp-03-25"  # Using a stable model
+model_name = "models/gemini-2.5-flash-preview-04-17"
+
+def get_song_recommendations(genres):
+    prompt = (
+        "Based on the following music genres, recommend 20 diverse and popular songs. "
+        "Please list them in the format: Song Name - Artist(s).\n\n"
+        f"Genres: {', '.join(genres)}\n\nRecommendations:"
+    )
+    try:
+        response = client.models.generate_content(
+            model=model_name,
+            contents=[types.Content(role="user", parts=[types.Part.from_text(text=prompt)])],
+            config=types.GenerateContentConfig(response_mime_type="text/plain"),
+        )
+        if response.text:
+            lines = response.text.strip().split('\n')
+            return [line.strip() for line in lines if line.strip()]
+        else:
+            return []
+    except Exception as e:
+        print(f"Error getting recommendations from Gemini: {e}")
+        return []
+
 
 def get_gemini_genre_classification_batched(prompt):
     try:
@@ -60,8 +83,10 @@ def classify_unknown_genres_batched_gemini(unknown_songs):
         lines = classification_response.strip().split('\n')
         for line in lines:
             if ': ' in line:
-                song_info, genre = line.split(': ', 1)
-                classifications[song_info.strip()] = genre.strip()
+                song_info, genre = line.split(':', 1)
+                song_info = song_info.strip()
+                genre = genre.strip()
+                classifications[song_info] = genre
 
     return classifications
 
@@ -106,9 +131,12 @@ def get_genre_from_artists(artists):
             return genres[0]
     return 'Unknown'
 
+from collections import defaultdict
+
 def organize_by_genre(tracks):
     genre_map = defaultdict(list)
     unknown_songs = []
+
     if tracks:
         for item in tracks:
             track = item['track']
@@ -118,10 +146,13 @@ def organize_by_genre(tracks):
             artists = track['artists']
             artist_names_str = ', '.join(artist['name'] for artist in artists)
             genre = get_genre_from_artists(artists)
+
+            formatted_song = f"{name} - {artist_names_str}"
+
             if genre == 'Unknown':
                 unknown_songs.append({'name': name, 'artists': artist_names_str})
             else:
-                genre_map[genre].append(f"{name} - {artist_names_str}")
+                genre_map[genre].append(formatted_song)
 
         print("\nClassifying songs with 'Unknown' genre using Gemini...")
         gemini_classifications = classify_unknown_genres_batched_gemini(unknown_songs)
@@ -134,7 +165,11 @@ def organize_by_genre(tracks):
                 genre_map[classified_genre].append(song_artist_str)
             else:
                 genre_map['Unknown (Unclassified by Gemini)'].append(song_artist_str)
+
+    # Return as list of tuples for easier formatting in frontend
+    print(list(genre_map.items()))
     return list(genre_map.items())
+
 
 app = Flask(__name__)
 
@@ -154,7 +189,16 @@ def organize_playlist_endpoint():
         return jsonify({"error": "Could not retrieve playlist tracks"}), 500
 
     organized_songs = organize_by_genre(tracks)
-    return jsonify(organized_songs)
+    genres_only = [genre for genre, _ in organized_songs if genre.lower() != 'unknown']
+    top_genres = genres_only[:3]  # Limit to top 3 for diversity
+
+    recommendations = get_song_recommendations(top_genres)
+
+    return jsonify({
+        "organized songs": organized_songs,
+        "recommended songs": recommendations
+    })
+
 
 @app.route("/organize/text", methods=['POST'])
 def organize_text_endpoint():
@@ -184,7 +228,16 @@ def organize_text_endpoint():
         else:
             genre_map['Unknown (Text Input)'].append(song_artist_str)
 
-    return jsonify(list(genre_map.items()))
+    genres_only = list(genre_map.keys())
+    top_genres = genres_only[:3]  # Limit to top 3 for prompt brevity
+
+    recommendations = get_song_recommendations(top_genres)
+
+    return jsonify({
+        "organized songs": list(genre_map.items()),
+        "recommended songs": recommendations
+    })
+
 
 if __name__ == "__main__":
     app.run(debug=True)

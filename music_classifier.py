@@ -20,7 +20,9 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
 ))
 
 client = genai.Client(api_key=GEMINI_API_KEY)
-model_name = "models/gemini-2.5-pro-exp-03-25"  # Using a stable model
+# model_name = "models/gemini-2.5-pro-exp-03-25"  # Using a stable model
+model_name = "models/gemini-2.5-flash-preview-04-17"  # Using a stable model
+
 
 def get_gemini_genre_classification_batched(prompt):
     try:

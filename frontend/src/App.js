@@ -19,6 +19,7 @@ function App() {
   const [spotifyLink, setSpotifyLink] = useState("");
   const [organizedSongs, setOrganizedSongs] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [fileName, setFileName] = useState("");
 
   const handleInsertText = () => {
     setShowTextArea(true);
@@ -50,20 +51,14 @@ function App() {
   };
 
   const handleFileChange = (info) => {
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-      if (info.file.type === "text/plain") {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          setFileContent(e.target.result);
-        };
-        reader.readAsText(info.file.originFileObj);
-      } else {
-        setFileContent(`Uploaded ${info.file.name} (non-text file)`);
-      }
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-      setFileContent("");
+    const file = info.file.originFileObj;
+    if (file) {
+      setFileName(file.name);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFileContent(e.target.result);
+      };
+      reader.readAsText(file);
     }
   };
 
@@ -103,6 +98,7 @@ function App() {
         if (response.ok) {
           message.success("Songs organized successfully!");
           const organizedData = await response.json();
+          console.log(organizedData);
           setOrganizedSongs(organizedData);
           setTextInput("");
           setFileContent("");
@@ -231,35 +227,48 @@ function App() {
           Organize Songs
         </Button>
 
-        {organizedSongs && organizedSongs.length > 0 && (
+        {organizedSongs && Object.keys(organizedSongs).length > 0 && (
           <div style={{ marginTop: 32, width: "100%", textAlign: "left" }}>
-            <Title level={2}>Organized Songs:</Title>
-            {organizedSongs.map(([genre, songs]) => (
+            {Object.entries(organizedSongs).map(([genre, songs]) => (
               <div key={genre} style={{ marginBottom: 16 }}>
                 <Title level={3}>{genre.toUpperCase()}</Title>
                 <ul>
-                  {songs.map((song) => (
-                    <li key={song}>{song}</li>
-                  ))}
+                  {genre === "organized songs"
+                    ? // Custom rendering for "organized songs"
+                      songs.map(([subGenre, subSongs], index) => (
+                        <li key={index}>
+                          <strong>{subGenre}:</strong>
+                          <ul>
+                            {subSongs.map((song, subIndex) => (
+                              <li key={subIndex}>{song}</li>
+                            ))}
+                          </ul>
+                        </li>
+                      ))
+                    : // Normal rendering
+                      songs.map((song, index) => <li key={index}>{song}</li>)}
                 </ul>
               </div>
             ))}
           </div>
         )}
-        {organizedSongs && organizedSongs.length === 0 && !loading && (
-          <div
-            style={{
-              marginTop: 32,
-              width: "100%",
-              textAlign: "center",
-              color: "gray",
-            }}
-          >
-            <Typography.Paragraph>
-              No songs found or could be classified.
-            </Typography.Paragraph>
-          </div>
-        )}
+
+        {organizedSongs &&
+          Object.keys(organizedSongs).length === 0 &&
+          !loading && (
+            <div
+              style={{
+                marginTop: 32,
+                width: "100%",
+                textAlign: "center",
+                color: "gray",
+              }}
+            >
+              <Typography.Paragraph>
+                No songs found or could be classified.
+              </Typography.Paragraph>
+            </div>
+          )}
       </div>
     </div>
   );
