@@ -25,21 +25,21 @@ function App() {
     setShowTextArea(true);
     setShowFileInput(false);
     setShowSpotifyInput(false);
-    setOrganizedSongs(null); // Clear previous results
+    setOrganizedSongs(null);
   };
 
   const handleInsertFile = () => {
     setShowFileInput(true);
     setShowTextArea(false);
     setShowSpotifyInput(false);
-    setOrganizedSongs(null); // Clear previous results
+    setOrganizedSongs(null);
   };
 
   const handleInsertSpotifyLink = () => {
     setShowSpotifyInput(true);
     setShowTextArea(false);
     setShowFileInput(false);
-    setOrganizedSongs(null); // Clear previous results
+    setOrganizedSongs(null);
   };
 
   const handleTextChange = (e) => {
@@ -82,7 +82,7 @@ function App() {
         dataToSend.text = textInput;
         endpoint = "/organize/text";
       } else if (fileContent) {
-        dataToSend.text = fileContent; // Treat file content as text input
+        dataToSend.text = fileContent;
         endpoint = "/organize/text";
       }
 

@@ -166,7 +166,6 @@ def organize_by_genre(tracks):
             else:
                 genre_map['Unknown (Unclassified by Gemini)'].append(song_artist_str)
 
-    # Return as list of tuples for easier formatting in frontend
     print(list(genre_map.items()))
     return list(genre_map.items())
 
@@ -190,7 +189,7 @@ def organize_playlist_endpoint():
 
     organized_songs = organize_by_genre(tracks)
     genres_only = [genre for genre, _ in organized_songs if genre.lower() != 'unknown']
-    top_genres = genres_only[:3]  # Limit to top 3 for diversity
+    top_genres = genres_only[:3] 
 
     recommendations = get_song_recommendations(top_genres)
 
@@ -207,16 +206,14 @@ def organize_text_endpoint():
     if not text_input:
         return jsonify({"error": "Missing 'text' in request body"}), 400
 
-    # Split the text into potential song entries (you might need more sophisticated logic)
     potential_songs = [line.strip() for line in text_input.split('\n') if line.strip()]
     unknown_songs = []
     for song_info in potential_songs:
-        # Try to split into name and artist - this is a basic approach
         parts = song_info.split(' - ')
         if len(parts) == 2:
             unknown_songs.append({'name': parts[0].strip(), 'artists': parts[1].strip()})
         else:
-            unknown_songs.append({'name': song_info.strip(), 'artists': ''}) # Or handle differently
+            unknown_songs.append({'name': song_info.strip(), 'artists': ''})
 
     gemini_classifications = classify_unknown_genres_batched_gemini(unknown_songs)
     genre_map = defaultdict(list)
@@ -229,7 +226,7 @@ def organize_text_endpoint():
             genre_map['Unknown (Text Input)'].append(song_artist_str)
 
     genres_only = list(genre_map.keys())
-    top_genres = genres_only[:3]  # Limit to top 3 for prompt brevity
+    top_genres = genres_only[:3]
 
     recommendations = get_song_recommendations(top_genres)
 
